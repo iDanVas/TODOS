@@ -5,7 +5,7 @@ import ResetCSS from "./styles/reset.css";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
-    <App />
-    <ResetCSS/>
+      <App />
+      <ResetCSS/>
   </>,
 );
