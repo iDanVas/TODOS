@@ -15,8 +15,12 @@ const TaskList = () => {
           <TaskLi 
           style={{textDecoration: item.isDone ? 'line-through' : ''}}>
             {item.task}</TaskLi>
-          <ActionButton onClick={() => dispatch(markDoneUnDone(item.id))}><DoneIcon /></ActionButton>
-          <ActionButton onClick={() => dispatch(removeTask(item.id))}><DeleteIcon /></ActionButton>
+          <ActionButton 
+            onClick={() => dispatch(markDoneUnDone(item.id))}><DoneIcon />
+          </ActionButton>
+          <ActionButton 
+            onClick={() => dispatch(removeTask(item.id))}><DeleteIcon />
+          </ActionButton>
         </TaskBoxForm>))}
     </ContainerUl>
   );
