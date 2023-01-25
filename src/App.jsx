@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TaskList from "./TasksList.jsx";
 import InputForm from "./InputForm.jsx";
+import Footer from "./Footer.jsx";
 
 function App() {
 
@@ -10,7 +11,9 @@ function App() {
         <TitleH1>Just Get It Done!</TitleH1>
       </ContainerDiv>
       <InputForm />
+      {/* <Filter /> */}
       <TaskList />
+      <Footer />
     </div>
   );
 };

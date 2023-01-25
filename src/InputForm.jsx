@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 import { addTask } from "./state/task.slice";
 
-function InputForm() {
+const InputForm = () => {
 
   const dispatch = useDispatch();
   const myInput = useRef();
