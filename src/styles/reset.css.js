@@ -23,6 +23,10 @@ const GlobalStyles = createGlobalStyle`
     li {
       list-style-type: none;
     }
+    div.toast-message{
+      font-size: 2rem;
+      color: rgb(247, 226, 223);
+    }
 `;
 
 export default GlobalStyles;

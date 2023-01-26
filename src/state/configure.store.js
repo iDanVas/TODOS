@@ -13,7 +13,7 @@ const logger = (store) => (next) => (action) => {
 // };
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer,//check it!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   // middleware: [logger, thunk] // --> set ALL of the middleware functions yourself
   middleware: [...getDefaultMiddleware(), logger] // --> add middleware functions to the default ones
 });

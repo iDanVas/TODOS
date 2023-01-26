@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MdDoneOutline as DoneIcon, MdRestoreFromTrash as DeleteIcon } from 'react-icons/md';
 import { useDispatch } from "react-redux";
-import { removeTask, markDoneUnDone } from "./state/task.slice";
+import { removeTask, toggleTaskDone } from "./state/task.slice";
 
 const Task = ({ tasks }) => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const Task = ({ tasks }) => {
                         style={{ textDecoration: item.isDone ? 'line-through' : '' }}>
                         {item.task}</TaskLi>
                     <ActionButton
-                        onClick={() => dispatch(markDoneUnDone(item.id))}><DoneIcon />
+                        onClick={() => dispatch(toggleTaskDone(item.id))}><DoneIcon />
                     </ActionButton>
                     <ActionButton
                         onClick={() => dispatch(removeTask(item.id))}><DeleteIcon />

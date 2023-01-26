@@ -5,25 +5,24 @@ const tasksSlice = createSlice({
   initialState: [],
   reducers: {
     addTask: (state, action) => {
-        const newTask = {
-            id: Date.now(),
-            task: action.payload,
-            isDone: false
-        }
-        state.push(newTask);
+      const newTask = {
+        id: Date.now(),
+        task: action.payload,
+        isDone: false
+      }
+      state.push(newTask);
     },
     removeTask: (state, action) => {
       const index = state.findIndex((item) => item.id === action.payload);//Find index in state
       state.splice(index, 1);//Remove task from state by INDEX
-  },
-  markDoneUnDone: (state , action) => {
-    const index = state.findIndex((item) => item.id === action.payload);//Find index in state
-    if(state[index].isDone === true){//Check if task is DONE
-      state[index].isDone = false;
-    }else{state[index].isDone = true;}//Set isDone to TRUE
+    },
+    toggleTaskDone: (state, action) => {
+      const index = state.findIndex((item) => item.id === action.payload);//Find index in state
+      state[index].isDone = !state[index].isDone;//Switches isDone TRUE/FALSE
+    }
   }
-}});
+});
 
 export default tasksSlice.reducer;
-export const { addTask , removeTask , markDoneUnDone} = tasksSlice.actions;
+export const { addTask, removeTask, toggleTaskDone } = tasksSlice.actions;
 console.log({ tasksSlice });
