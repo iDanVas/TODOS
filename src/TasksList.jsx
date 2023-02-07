@@ -5,7 +5,7 @@ import Task from "./Task";
 
 const TaskList = () => {
 
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state) => state.tasks.items);
 
   return (
     <ContainerUl>

@@ -1,20 +1,18 @@
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {  taskFilter } from "./state/task.slice";
 
 const Footer = () => {
 
-    const tasks = useSelector((state) => state.tasks);
-
-const active = "";
-const defaultF = "";
-const complited = "";
+    const tasks = useSelector((state) => state.tasks.items);
+    const dispatch = useDispatch();
 
     return (
         <Box style={{ display: tasks.length > 0 ? "flex" : "none"}}>
             <ButtonBox>
-                <Button onClick={defaultF}>All</Button>
-                <Button onClick={active}>Active</Button>
-                <ButtonC onClick={complited}>Complited</ButtonC>
+                <ButtonA onClick={()=> dispatch(taskFilter("All"))}>All</ButtonA>
+                <Button onClick={()=> dispatch(taskFilter("Active"))}>Active</Button>
+                <ButtonC onClick={()=> dispatch(taskFilter("Completed"))}>Completed</ButtonC>
             </ButtonBox>
         </Box>
     )
@@ -38,6 +36,17 @@ const ButtonBox = styled.div`
   margin: 1rem;
   `;
 
+const ButtonA = styled.button`
+  background-color: rgb(247, 226, 223);
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  width: auto;
+  height: 2em;
+  border-radius: 15px 0px 0px 15px;
+  /* margin: 0 2px; */
+  padding: 5px;
+  `;
 const Button = styled.button`
   background-color: rgb(247, 226, 223);
   color: black;
@@ -46,8 +55,8 @@ const Button = styled.button`
   width: auto;
   height: 2em;
   /* border-radius: 10%; */
-  margin: 0 2px;
-  padding: 10px;
+  /* margin: 0 2px; */
+  padding: 5px;
   `;
 
 const ButtonC = styled.button`
@@ -58,6 +67,6 @@ cursor: pointer;
 width: auto;
 height: 2em;
 border-radius: 0px 15px 15px 0px;
-margin: 0 2px;
-padding: 10px;
+/* margin: 0 2px; */
+padding: 5px;
 `;

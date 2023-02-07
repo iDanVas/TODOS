@@ -11,7 +11,6 @@ function App() {
         <TitleH1>Just Get It Done!</TitleH1>
       </ContainerDiv>
       <InputForm />
-      {/* <Filter /> */}
       <TaskList />
       <Footer />
     </div>

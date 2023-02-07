@@ -3,13 +3,17 @@ import { MdDoneOutline as DoneIcon, MdRestoreFromTrash as DeleteIcon } from 'rea
 import { useDispatch } from "react-redux";
 import { removeTask, toggleTaskDone } from "./state/task.slice";
 
+
 const Task = ({ tasks }) => {
     const dispatch = useDispatch();
+    const test = tasks.items;
+
+
 
     return (
         <>
             {tasks.map((item) => (
-                <TaskBoxForm key={item.id}>
+                <TaskBoxForm key={item.id} style={{ display: item.show ? 'flex' : 'none'}}>
                     <TaskLi
                         style={{ textDecoration: item.isDone ? 'line-through' : '' }}>
                         {item.task}</TaskLi>
@@ -19,9 +23,11 @@ const Task = ({ tasks }) => {
                     <ActionButton
                         onClick={() => dispatch(removeTask(item.id))}><DeleteIcon />
                     </ActionButton>
-                </TaskBoxForm>))}
+                </TaskBoxForm>)
+                )}
         </>
     );
+
 
 };
 

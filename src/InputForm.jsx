@@ -1,29 +1,12 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
-
-
 import { addTask } from "./state/task.slice";
+import toastroptions from "./styles/toastr.options.js"
 
 const InputForm = () => {
 
-  toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": true,
-    "positionClass": "toast-top-center",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
+  toastr.options = toastroptions;
 
   const dispatch = useDispatch();
   const myInput = useRef(null);
@@ -48,12 +31,6 @@ const InputForm = () => {
 };
 
 export default InputForm;
-
-// const Div = styled.div`
-//   .toast-message{
-//     font-size: 80px;
-//   }
-// `;
 
 const MiniForm = styled.form`//
   display: flex;
