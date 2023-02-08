@@ -2,8 +2,23 @@ import styled from "styled-components";
 import TaskList from "./TasksList.jsx";
 import InputForm from "./InputForm.jsx";
 import Footer from "./Footer.jsx";
+import { useEffect } from "react";
+import { getAllTasks } from "./network/todos.api.js";
+import { useDispatch, useSelector } from "react-redux";
+import { initTodos } from "./state/task.slice.js";
 
 function App() {
+
+  const todos = useSelector((state) => state.tasks.items);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function getInitialData() {
+      const initialTasks = await getAllTasks();
+      dispatch(initTodos(initialTasks));
+    };
+    getInitialData();
+  }, []);
 
   return (
     <div>

@@ -7,6 +7,9 @@ const tasksSlice = createSlice({
     currentFilter: "All"
   },
   reducers: {
+    initTodos: (state, action) => {
+      state.items = action.payload;
+    },
     addTask: (state, action) => {
       const newTask = {
         id: Date.now(),
@@ -33,13 +36,13 @@ const tasksSlice = createSlice({
       // state.currentFilter = action.payload
       switch (action.payload) {
         case "All":
-          state.items.forEach((item)=> item.show = true);
+          state.items.forEach((item) => item.show = true);
           break;
         case "Active":
-          state.items.forEach((item)=> item.show = item.isDone == false);
+          state.items.forEach((item) => item.show = item.isDone == false);
           break;
         case "Completed":
-          state.items.forEach((item)=> item.show = item.isDone == true);
+          state.items.forEach((item) => item.show = item.isDone == true);
           break;
       }
     }
@@ -47,5 +50,5 @@ const tasksSlice = createSlice({
 });
 
 export default tasksSlice.reducer;
-export const { addTask, removeTask, toggleTaskDone , taskFilter} = tasksSlice.actions;
+export const { addTask, removeTask, toggleTaskDone, taskFilter, initTodos } = tasksSlice.actions;
 console.log({ tasksSlice });
